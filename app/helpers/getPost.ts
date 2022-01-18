@@ -18,7 +18,7 @@ type PostMarkdownAttributes = {
   featuredImage: string;
 };
 
-const postsPath = path.join(__dirname, '/../../app/posts');
+const postsPath = path.join(__dirname, '/../../posts');
 
 export async function getPost(slug: string): Promise<PostDetail> {
   marked.setOptions({
