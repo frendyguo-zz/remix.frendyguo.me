@@ -39,7 +39,7 @@ export async function getPost(slug: string): Promise<PostDetail> {
     renderer
   });
 
-  const dir = path.resolve('.');
+  const dir = path.resolve('./public');
   const filepath = path.join(dir, 'posts', slug + '.md');
   const file = await fs.readFile(filepath);
   const { attributes, body } = parseFrontMatter<PostMarkdownAttributes>(file.toString());
