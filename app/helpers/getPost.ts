@@ -18,7 +18,7 @@ type PostMarkdownAttributes = {
   featuredImage: string;
 };
 
-const postsPath = path.join(__dirname, '/../../posts');
+const postsPath = path.join(__dirname, '/../../app/posts');
 
 export async function getPost(slug: string): Promise<PostDetail> {
   marked.setOptions({
@@ -39,6 +39,7 @@ export async function getPost(slug: string): Promise<PostDetail> {
     renderer
   });
 
+  console.log('READ DIR 2' + await fs.readdir('.'));
   const filepath = path.join(postsPath, slug + '.md');
   const file = await fs.readFile(filepath);
   const { attributes, body } = parseFrontMatter<PostMarkdownAttributes>(file.toString());

@@ -11,10 +11,12 @@ type PostMarkdownAttributes = {
   featuredImage: string;
 };
 
-const postsPath = path.join(__dirname, '/../../posts');
+const postsPath = path.join(__dirname, '/../../app/posts');
 
 export async function getPosts(): Promise<Post[]> {
+  console.log('READ DIR' + await fs.readdir('.'));
   const dir = await fs.readdir(postsPath);
+  console.log('dir', dir);
   const posts = await Promise.all(
     dir.map(async filename => {
       const file = await fs.readFile(
