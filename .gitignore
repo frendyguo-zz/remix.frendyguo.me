@@ -1,0 +1,9 @@
+node_modules
+
+/.cache
+/build
+/public/build
+/node_modules
+.env
+/app/tailwind.css
+package-lock.json
