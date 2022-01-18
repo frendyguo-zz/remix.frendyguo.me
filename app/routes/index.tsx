@@ -15,12 +15,19 @@ export function links() {
 };
 
 export let loader: LoaderFunction = async () => {
-  const posts = await getPosts();
-  let data: IndexData = {
-    posts
-  };
+  try {
+    const posts = await getPosts();
+    let data: IndexData = {
+      posts
+    };
 
-  return json(data);
+    return json(data); 
+  } catch (e) {
+    console.log(e);
+    throw new Response("Internal server error!", {
+      status: 500
+    });
+  }
 };
 
 export default function Index() {
