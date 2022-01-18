@@ -42,6 +42,7 @@ export let loader: LoaderFunction = async ({ params }) => {
   
     return json(data);
   } catch (e) {
+    console.log(e);
     throw new Response("Not Found", {
       status: 404
     });
