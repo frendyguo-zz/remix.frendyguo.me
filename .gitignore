@@ -8,3 +8,4 @@ api/_build
 .env
 /app/tailwind.css
 package-lock.json
+.vercel
