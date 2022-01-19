@@ -11,13 +11,16 @@ type PostMarkdownAttributes = {
   featuredImage: string;
 };
 
+const postsPath = path.join(__dirname, '/../../app/posts');
+
 export async function getPosts(): Promise<Post[]> {
-  const postsDirectory = path.join(path.resolve('./public'), 'posts');
-  const dir = await fs.readdir(postsDirectory);
+  const currentDir = path.resolve('.');
+  const dir = await fs.readdir(path.join(currentDir, 'posts'));
+  console.log('dir', dir);
   const posts = await Promise.all(
     dir.map(async filename => {
       const file = await fs.readFile(
-        path.join(postsDirectory, filename)
+        path.join(postsPath, filename)
       );
       const {
         attributes,
