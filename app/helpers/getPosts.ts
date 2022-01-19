@@ -14,7 +14,7 @@ type PostMarkdownAttributes = {
 const publicPath = path.resolve('.', 'public');
 
 export async function getPosts(): Promise<Post[]> {
-  console.log('READDIR', await fs.readdir(path.resolve('.')));
+  console.log('READDIR', await fs.readdir(path.join(path.resolve('.'), 'output')));
   const dir = await fs.readdir(path.join(publicPath, 'posts'));
   const posts = await Promise.all(
     dir.map(async filename => {
