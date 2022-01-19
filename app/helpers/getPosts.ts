@@ -14,8 +14,8 @@ type PostMarkdownAttributes = {
 const postsPath = path.join(__dirname, '/../../app/posts');
 
 export async function getPosts(): Promise<Post[]> {
-  console.log('__dirname', __dirname);
-  console.log('DIRNAME READ', await fs.readdir(__dirname));
+  console.log('cwd', process.cwd());
+  console.log('DIRNAME READ', await fs.readdir(path.join(__dirname, '..', '..', '..')));
 
   const currentDir = path.resolve('./public');
   const dir = await fs.readdir(path.join(currentDir, 'posts'));
