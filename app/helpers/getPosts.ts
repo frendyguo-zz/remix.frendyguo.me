@@ -11,20 +11,14 @@ type PostMarkdownAttributes = {
   featuredImage: string;
 };
 
-const postsPath = path.join(__dirname, '/../../app/posts');
+const publicPath = path.resolve('.', 'public');
 
 export async function getPosts(): Promise<Post[]> {
-  console.log('cwd', process.cwd());
-  console.log('DIRNAME READ', await fs.readdir(path.join(__dirname, '..', '..')));
-
-  const currentDir = path.resolve('./public');
-  
-
-  const dir = await fs.readdir(path.join(currentDir, 'posts'));
+  const dir = await fs.readdir(path.join(publicPath, 'posts'));
   const posts = await Promise.all(
     dir.map(async filename => {
       const file = await fs.readFile(
-        path.join(postsPath, filename)
+        path.join(publicPath, 'posts', filename)
       );
       const {
         attributes,
