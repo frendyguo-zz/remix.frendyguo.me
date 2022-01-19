@@ -15,9 +15,11 @@ const postsPath = path.join(__dirname, '/../../app/posts');
 
 export async function getPosts(): Promise<Post[]> {
   console.log('cwd', process.cwd());
-  console.log('DIRNAME READ', await fs.readdir(path.join(__dirname, '..', '..', '..')));
+  console.log('DIRNAME READ', await fs.readdir(path.join(__dirname, '..', '..')));
 
   const currentDir = path.resolve('./public');
+  
+
   const dir = await fs.readdir(path.join(currentDir, 'posts'));
   const posts = await Promise.all(
     dir.map(async filename => {
