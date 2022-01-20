@@ -32,7 +32,6 @@ export let loader: LoaderFunction = async () => {
 
 export default function Index() {
   let data = useLoaderData<IndexData>();
-
   return (
     <div className="px-4 font-default text-neutral-500 dark:text-white mx-auto tablet:px-0 tablet:max-w-2xl laptop:max-w-2xl">
       <h1 className="text-3xl text-left text-opacity-relax mt-4 tablet:text-3xl tablet:mt-10">

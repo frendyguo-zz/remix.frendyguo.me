@@ -18,7 +18,7 @@ const Post: React.FC<PostProps> = ({
   return (
     <article className='border rounded pt-2 px-3 pb-3 mb-4 tablet:mb-5'>
       <time className='text-xs text-neutral-300 dark:text-white dark:font-normal text-opacity-relax font-semibold'>
-        {dayjs(date).format('DD MMMM YYYY')} - {readingTime.toFixed()} mins read
+        {dayjs(date).format('DD MMMM YYYY')} - {readingTime?.toFixed()} mins read
       </time>
       <h2 className='text-lg leading-6 mt-1 font-bold text-opacity-relax'>
         <Link title={title} to={slug}>{title}</Link>

@@ -77,6 +77,7 @@ export function ErrorBoundary({ error }: { error: Error }) {
 
 export function CatchBoundary() {
   let caught = useCatch();
+  console.log(caught);
 
   let message;
   switch (caught.status) {
