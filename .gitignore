@@ -3,6 +3,7 @@ node_modules
 /.cache
 /build
 /public/build
+/public/posts
 /node_modules
 api/_build
 .env
