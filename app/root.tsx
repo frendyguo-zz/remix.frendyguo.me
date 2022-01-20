@@ -48,6 +48,8 @@ export let meta: MetaFunction = () => {
     'og:type': 'website',
     'google-site-verification': siteVerification,
     'og:image': `/assets/og-image.png`,
+    "twitter:card": "summary",
+    "twitter:creator": "@fiddleop",
     'twitter:image': `/assets/og-image.png`
   };
 };
