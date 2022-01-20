@@ -15,7 +15,7 @@ export let meta: MetaFunction = ({ data }: { data: PostDetailData }) => {
 
   const { post } = data;
   const title = `${post.title} | Frendy Guo`;
-  const image = `${config.siteUrl}/assets${post.featuredImage}`;
+  const image = `/assets${post.featuredImage}`;
   const desc = `${post.description}`;
   const siteVerification = config.googleSiteVerification;
 
