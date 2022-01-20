@@ -59,7 +59,7 @@ const PostDetail = () => {
         <time className="block text-xs text-left mt-2 tablet:text-center tablet:mt-4">
           { dayjs(post.date).format('DD MMMM YYYY') } - {Math.round(post.readingTime)} min(s) read
         </time> 
-        <div className="prose max-w-full dark:prose-invert pb-12 mt-4 tablet:mt-8 tablet:border-t-2 tablet:border-t-dark/[.87] dark:tablet:border-t-white/[.87] tablet:pt-4 mx-auto tablet:max-w-xl"
+        <div className="prose prose-lg laptop:prose-base max-w-full dark:prose-invert pb-12 mt-4 tablet:mt-8 tablet:border-t-2 tablet:border-t-dark/[.87] dark:tablet:border-t-white/[.87] tablet:pt-4 mx-auto tablet:max-w-xl"
           dangerouslySetInnerHTML={{ __html: post.body }}
         />
       </div>
