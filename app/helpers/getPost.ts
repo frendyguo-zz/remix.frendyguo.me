@@ -37,7 +37,6 @@ export async function getPost(slug: string): Promise<PostDetail> {
     renderer
   });
 
-  console.log(await fs.readdir(`${__dirname}/../../app`));
   const pathToPosts = `${__dirname}/../../app/posts`;
   const filepath = path.join(pathToPosts, slug + '.md');
   const file = await fs.readFile(filepath);

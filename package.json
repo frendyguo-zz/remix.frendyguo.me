@@ -4,7 +4,7 @@
   "description": "Frendy Guo personal website built with Remix.run",
   "license": "",
   "scripts": {
-    "build": "yarn build:post && yarn build:css && remix build",
+    "build": "yarn build:css && remix build",
     "build:post": "cp -r ./app/posts ./public/posts",
     "build:css": "tailwindcss -o ./app/tailwind.css",
     "clear": "rm -rf public/build && rm -rf api/_build",
