@@ -47,10 +47,10 @@ export let meta: MetaFunction = () => {
     url: siteUrl,
     'og:type': 'website',
     'google-site-verification': siteVerification,
-    'og:image': `/assets/og-image.png`,
+    'og:image': `${siteUrl}/assets/og-image.png`,
     "twitter:card": "summary_large_image",
     "twitter:creator": "@fiddleop",
-    'twitter:image': `/assets/og-image.png`
+    'twitter:image': `${siteUrl}/assets/og-image.png`
   };
 };
 

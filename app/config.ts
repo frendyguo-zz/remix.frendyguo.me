@@ -1,5 +1,5 @@
 const config = {
-  siteUrl: 'https://frendyguo.me',
+  siteUrl: 'https://remix.frendyguo.me',
   googleSiteVerification: ''
 };
 

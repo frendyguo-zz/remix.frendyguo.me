@@ -17,6 +17,7 @@ export let meta: MetaFunction = ({ data }: { data: PostDetailData }) => {
   const title = `${post.title} | Frendy Guo`;
   const image = `/assets${post.featuredImage}`;
   const desc = `${post.description}`;
+  const siteUrl = config.siteUrl;
   const siteVerification = config.googleSiteVerification;
 
   return {
@@ -27,8 +28,10 @@ export let meta: MetaFunction = ({ data }: { data: PostDetailData }) => {
     url: config.siteUrl,
     'og:type': 'website',
     'google-site-verification': siteVerification,
-    'og:image': image,
-    'twitter:image': image
+    'og:image': `${siteUrl}${image}`,
+    "twitter:card": "summary_large_image",
+    "twitter:creator": "@fiddleop",
+    'twitter:image': `${siteUrl}${image}`
   };
 };
 
