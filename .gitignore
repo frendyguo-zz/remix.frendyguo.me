@@ -7,5 +7,6 @@ node_modules
 /node_modules
 api/_build
 .env
+.vercel
 /app/tailwind.css
 package-lock.json
