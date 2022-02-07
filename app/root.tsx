@@ -11,6 +11,7 @@ import {
   useMatches
 } from "remix";
 import type { LinksFunction } from "remix";
+import { useLocation } from "react-router-dom";
 
 import styles from "./tailwind.css";
 import globalStylesUrl from "~/styles/global.css";
@@ -18,7 +19,8 @@ import highlightStylesUrl from "~/styles/highlight.css";
 import ThemeSwitch from "./components/ThemeSwitch";
 import ThemeScript from "./components/ThemeScript";
 import config from "./config";
-import { useMemo } from "react";
+import * as gtag from './helpers/gtags';
+import { useEffect, useMemo } from "react";
 
 export let links: LinksFunction = () => {
   return [
@@ -55,8 +57,29 @@ export let meta: MetaFunction = () => {
 };
 
 export default function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    gtag.pageview(location.pathname);
+  }, [location]);
+
   return (
     <Document>
+      <script
+        async
+        src={`https://www.googletagmanager.com/gtag/js?id=${config.gaId}`}
+      />
+      <script
+        async
+        id="gtag-init"
+        dangerouslySetInnerHTML={{
+          __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        `
+        }}
+      />
       <Layout>
         <Outlet />
       </Layout>
@@ -114,7 +137,7 @@ function Document({
   const matches = useMatches();
   const match = matches.find((match) => match.data && match.data.canonical);
   const canonical = match?.data.canonical;
-
+  
   const theme = useMemo(() => {
     if (typeof window === 'undefined') return '';
     return window.__theme;
